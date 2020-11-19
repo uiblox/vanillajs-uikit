@@ -1,0 +1,72 @@
+.accordion {
+  width: 100%;
+  line-height: 1;
+
+  .accordion-heading {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .accordion-group {
+    padding: 12px 0;
+    -webkit-transition: all 0.15s ease-in;
+    -o-transition: all 0.15s ease-in;
+    transition: all 0.15s ease-in;
+    border-top: 1px solid #000;
+    line-height: 1;
+
+    .accordion-detail {
+      display: none;
+      opacity: 0;
+      -webkit-transition: opacity 0.7s ease-in;
+      -o-transition: opacity 0.7s ease-in;
+      transition: opacity 0.7s ease-in;
+      &.animate-visibility {
+        opacity: 1;
+      }
+    }
+
+    &.is-expanded {
+      .accordion-detail {
+        display: block;
+      }
+
+      .accordion-button {
+        &:after {
+          content: "+";
+          position: relative;
+          font-size: 20px;
+          outline-offset: 10px;
+        }
+      }
+    }
+
+    .accordion-button {
+      margin-right: 10px;
+      border: none;
+      background-color: transparent;
+      -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: 0.2s ease-in;
+      -o-transition: 0.2s ease-in;
+      transition: 0.2s ease-in;
+      cursor: pointer;
+      &.active {
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -webkit-transition: 0.2s ease-in;
+        -o-transition: 0.2s ease-in;
+        transition: 0.2s ease-in;
+      }
+      &:after {
+        content: "-";
+        position: relative;
+        font-size: 20px;
+        outline-offset: 10px;
+      }
+    }
+  }
+}

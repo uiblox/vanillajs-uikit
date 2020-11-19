@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-title--1">Simple Accordion </h1>
+
+    <!-- Accordion one -->
+    <div class="accordion">
+      <div aria-expanded="false" class="accordion-group">
+        <div id="accordionHeaderOne" class="accordion-heading">
+          <span>Accordion Number I</span>
+          <button aria-controls="accordionPanelOne" class="accordion-button text-regular"></button>
+        </div>
+        <div id="accordionPanelOne" aria-labeledby="accordionHeaderOne" class="accordion-detail">
+          <p class="text-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et
+            dolore magna aliqua.</p>
+          <ul>
+            <li class="text-regular">Lorem ipsum dolor sit amet</li>
+            <li class="text-regular">Lorem ipsum dolor sit amet</li>
+            <li class="text-regular">Lorem ipsum dolor sit amet</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Accordion two -->
+      <div aria-expanded="false" class="accordion-group">
+        <div id="accordionHeaderTwo" class="accordion-heading">
+          <span>Accordion Number II</span>
+          <button aria-controls="accordionPanelTwo" class="accordion-button text-regular"></button>
+        </div>
+        <div id="accordionPanelTwo" aria-labeledby="accordionHeaderTwo" class="accordion-detail">
+          <p class="text-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.</p>
+        </div>
+      </div>
+      <!--  Accordion three -->
+      <div aria-expanded="false" class="accordion-group">
+        <div id="accordionHeaderThree" class="accordion-heading">
+          <span>Accordion Number III</span>
+          <button aria-controls="accordionPanelThree" class="accordion-button text-regular"></button>
+        </div>
+        <div id="accordionPanelThree" aria-labeledby="accordionHeaderTwo" class="accordion-detail">
+          <p class="text-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+          <ul>
+            <li class="text-regular">more info</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="js/accordion.js"></script>
+</body>
+
+</html>

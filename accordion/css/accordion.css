@@ -1,0 +1,70 @@
+.accordion {
+  width: 100%;
+  line-height: 1;
+}
+
+.accordion .accordion-heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.accordion .accordion-group {
+  padding: 12px 0;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+  border-top: 1px solid #000;
+  line-height: 1;
+}
+
+.accordion .accordion-group .accordion-detail {
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.7s ease-in;
+  transition: opacity 0.7s ease-in;
+}
+
+.accordion .accordion-group .accordion-detail.animate-visibility {
+  opacity: 1;
+}
+
+.accordion .accordion-group.is-expanded .accordion-detail {
+  display: block;
+}
+
+.accordion .accordion-group.is-expanded .accordion-button:after {
+  content: "+";
+  position: relative;
+  font-size: 20px;
+  outline-offset: 10px;
+}
+
+.accordion .accordion-group .accordion-button {
+  margin-right: 10px;
+  border: none;
+  background-color: transparent;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
+  cursor: pointer;
+}
+
+.accordion .accordion-group .accordion-button.active {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
+}
+
+.accordion .accordion-group .accordion-button:after {
+  content: "-";
+  position: relative;
+  font-size: 20px;
+  outline-offset: 10px;
+}
+/*# sourceMappingURL=accordion.css.map */
