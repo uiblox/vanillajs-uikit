@@ -1,0 +1,51 @@
+$dark: #212121;
+$contrast: #ec008c;
+
+.tabs-group {
+  width: 100%;
+  font-size: 16px;
+}
+
+.tab-list {
+  width: 100%;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tab-card {
+  min-width: 100px;
+  margin: 0 20px;
+  text-align: center;
+  &.active {
+    border-top: 1px solid #ec008c;
+  }
+}
+
+.tab-cardLink {
+  color: $dark;
+  text-decoration: none;
+  border-top: none;
+  &:hover {
+    color: $dark;
+    text-decoration: underline;
+  }
+  &:visited {
+    color: $dark;
+  }
+  &:active {
+    color: $dark;
+  }
+}
+
+.tab-panel {
+  padding: 20px;
+  display: none;
+}
+
+.tab-panel {
+  &.active {
+    display: block;
+  }
+}
