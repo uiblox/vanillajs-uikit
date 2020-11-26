@@ -47,8 +47,6 @@ body {
 
 .accordion .accordion-group {
   padding: 12px 0;
-  -webkit-transition: all 0.15s ease-in;
-  transition: all 0.15s ease-in;
   border-top: 1px solid #000;
   line-height: 1;
 }
@@ -56,8 +54,8 @@ body {
 .accordion .accordion-group .accordion-detail {
   display: none;
   opacity: 0;
-  -webkit-transition: opacity 0.7s ease-in;
-  transition: opacity 0.7s ease-in;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 
 .accordion .accordion-group .accordion-detail.animate-visibility {
@@ -80,17 +78,17 @@ body {
   border: none;
   background-color: transparent;
   -webkit-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: 0.2s ease-in;
-  transition: 0.2s ease-in;
+          transform: rotate(0deg);
+  -webkit-transition: 0.03s ease;
+  transition: 0.03s ease;
   cursor: pointer;
 }
 
 .accordion .accordion-group .accordion-button.active {
   -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  -webkit-transition: 0.2s ease-in;
-  transition: 0.2s ease-in;
+          transform: rotate(45deg);
+  -webkit-transition: 0.03s ease;
+  transition: 0.03s ease;
 }
 
 .accordion .accordion-group .accordion-button:after {
