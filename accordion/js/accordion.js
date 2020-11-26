@@ -1,6 +1,6 @@
 (function () {
-  var accordions = document.querySelectorAll(".accordion-group");
-  var accordionsBtns = document.querySelectorAll(
+  const accordions = document.querySelectorAll(".accordion-group");
+  const accordionsBtns = document.querySelectorAll(
     ".accordion-group .accordion-button"
   );
 
@@ -15,29 +15,24 @@
     accordionHeading.setAttribute('id', 'accordionHeader' + index)
     accordionPanel.setAttribute('id', 'accordionPanel' + index)
     accordionPanel.setAttribute('aria-labeledby', 'accordionHeader' + index)
+    group.addEventListener("click", toogleAccordian);
   })
 
-  // Accordion open/close functionality
-  Array.prototype.slice.call(accordionsBtns).map(function (button) {
-    button.addEventListener("click", toogleAccordian);
-  });
-
   function toogleAccordian() {
-    var thisGroup = this.parentNode.parentNode;
-    var thisButton = this;
-    var expandedState = false;
+    var button = this.querySelector('.accordion-button');
+    let expandedState = false;
 
-    if (thisGroup.classList.contains("is-expanded")) {
+    if (this.classList.contains("is-expanded")) {
       expandedState = false;
-      thisGroup.classList.remove("is-expanded");
-      thisButton.classList.remove('active')
+      this.classList.remove("is-expanded");
+      button.classList.remove('active')
     } else {
       expandedState = true;
-      thisGroup.classList.add("is-expanded");
-      thisButton.classList.add('active')
+      this.classList.add("is-expanded");
+      button.classList.add('active')
     }
-    setAnimateVisibility(expandedState, thisGroup)
-    setAriaState(expandedState, thisGroup);
+    setAnimateVisibility(expandedState, this)
+    setAriaState(expandedState, this);
   }
 
   function setAriaState(openState, group) {
@@ -53,7 +48,7 @@
     } else {
       setTimeout(function () {
         thisDetail.classList.add('animate-visibility')
-      }, 20)
+      }, 10)
     }
   }
 })();
