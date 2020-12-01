@@ -1,6 +1,8 @@
-# Drop Down Selection
+# Drop-down Selection
 
 Drop down selection UI created for product selection. Perfect for showing select content when user selects list item.
+
+![drop down gif](resource/dropdown.gif)
 
 ## Features
 
