@@ -1,26 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap");
 
 * {
   font-family: "Open Sans", sans-serif;
 }
 
-.text-title--1 {
-  font-size: 32px;
-  font-weight: 500;
-  @media screen and (min-width: 768px) {
-    font-size: 44px;
-  }
-}
-
-.text-regular {
-  font-size: 16px;
-  font-weight: 300;
-  @media screen and (min-width: 768px) {
-    font-size: 20px;
-  }
-}
-
 .container {
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 40px 20px;
   width: 100%;
-  margin-bottom: 40px;
 }
+
+// .text-title--1 {
+//   font-size: 32px;
+//   font-weight: 500;
+//   @media screen and (min-width: 768px) {
+//     font-size: 44px;
+//   }
+// }
+
+// .text-regular {
+//   font-size: 16px;
+//   font-weight: 300;
+//   @media screen and (min-width: 768px) {
+//     font-size: 20px;
+//   }
+// }

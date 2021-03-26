@@ -109,7 +109,67 @@
             dropDownBtn.childNodes[0].textContent = item.textContent
         }
     }
-    dropDown.init();
+
+    const accordion = {
+
+        init() {
+            this.accordions = document.querySelectorAll(".accordion-group");
+            const accordionsBtns = document.querySelectorAll(".accordion-group .accordion-button");
+            if (!this.accordions.length) {
+                return;
+            }
+            this.registerEvents();
+        },
+        registerEvents() {
+            console.log(this.accordions)
+            Array.prototype.slice.call(this.accordions).map((group, index) => {
+                console.log(group)
+                const accordionHeading = group.querySelector('.accordion-heading')
+                const accordionPanel = group.querySelector('.accordion-detail')
+                accordionHeading.setAttribute('id', 'accordionHeader' + index)
+                accordionPanel.setAttribute('id', 'accordionPanel' + index)
+                accordionPanel.setAttribute('aria-labeledby', 'accordionHeader' + index)
+                group.addEventListener("click", this.toggleAccordian)
+            })
+        },
+        toggleAccordian() {
+            var button = this.querySelector('.accordion-button');
+            let expandedState = false;
+
+            if (this.classList.contains("is-expanded")) {
+                expandedState = false;
+                this.classList.remove("is-expanded");
+                button.classList.remove('active')
+            } else {
+                expandedState = true;
+                this.classList.add("is-expanded");
+                button.classList.add('active')
+            }
+            accordion.setAnimateVisibility(expandedState, this)
+            accordion.setAriaState(expandedState, this);
+        },
+        setAriaState(openState, group) {
+            openState === false
+                ? group.setAttribute("aria-expanded", "false")
+                : group.setAttribute("aria-expanded", "true");
+        },
+        setAnimateVisibility(openState, group) {
+            var thisDetail = group.querySelector('.accordion-detail')
+            if (openState === false) {
+                thisDetail.classList.remove('animate-visibility')
+            } else {
+                setTimeout(function () {
+                    thisDetail.classList.add('animate-visibility')
+                }, 10)
+            }
+        }
+    }
+
+    window.addEventListener('load', () => {
+        dropDown.init();
+        accordion.init();
+    })
+
 
     //helper functions
     function hasClass(target, className) {

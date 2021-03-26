@@ -1,5 +1,9 @@
 @import "./baseline.scss";
 
+.selection {
+  margin-bottom: 125px;
+}
+
 .u-dropdown {
   position: absolute;
   box-sizing: border-box;
@@ -80,6 +84,69 @@
         :visited {
           color: #000;
         }
+      }
+    }
+  }
+}
+
+/* Accordion*/
+.accordion {
+  line-height: 1;
+  padding: 40px 0;
+  // width: 100%;
+
+  .accordion-heading {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .accordion-group {
+    padding: 12px 0;
+    border-top: 1px solid #000;
+    line-height: 1;
+
+    .accordion-detail {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.1s ease;
+      &.animate-visibility {
+        opacity: 1;
+      }
+    }
+
+    &.is-expanded {
+      .accordion-detail {
+        display: block;
+        padding: 0 10px;
+      }
+
+      .accordion-button {
+        &:after {
+          content: "+";
+          position: relative;
+          font-size: 20px;
+          outline-offset: 10px;
+        }
+      }
+    }
+
+    .accordion-button {
+      margin: 0;
+      border: none;
+      background-color: transparent;
+      transform: rotate(0deg);
+      transition: 0.03s ease;
+      cursor: pointer;
+      &.active {
+        transform: rotate(45deg);
+        transition: 0.03s ease;
+      }
+      &:after {
+        content: "-";
+        position: relative;
+        font-size: 20px;
+        outline-offset: 10px;
       }
     }
   }
