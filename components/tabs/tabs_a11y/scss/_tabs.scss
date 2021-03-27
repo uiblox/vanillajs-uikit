@@ -44,21 +44,21 @@
 
 .tab--content {
   display: none;
+
+  .text-group {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+      justify-content: space-between;
+
+      p {
+        margin: 0 10px;
+      }
+    }
+  }
 }
 
 .tab--content.active {
   display: block;
-}
-
-.text-group {
-  display: flex;
-  flex-direction: column;
-
-  @media screen and (min-width: 768px) {
-    justify-content: space-between;
-
-    p {
-      margin: 0 10px;
-    }
-  }
 }
