@@ -1,0 +1,32 @@
+{
+  "name": "UI-components",
+  "version": "1.0.0",
+  "description": "Simple UI components with standard functionality. Ready to customize and build upon",
+  "main": "index.js",
+  "scripts": {
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "production": "mix --production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bournecreative/ui-components.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bournecreative/ui-components/issues"
+  },
+  "homepage": "https://github.com/bournecreative/ui-components#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "laravel-mix": "^6.0.13",
+    "resolve-url-loader": "^3.1.2",
+    "sass": "^1.32.8",
+    "sass-loader": "^10.1.1"
+  }
+}

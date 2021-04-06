@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap");
 
 * {
   font-family: "Open Sans", sans-serif;
-  box-sizing: border-box;
 }
 
 html,
@@ -24,11 +23,15 @@ h1 {
   font-size: 24px;
 }
 
-.container__demo {
+p {
+  font-size: 16px;
+}
+
+.demo__container {
   margin: 0 auto;
+  overflow: hidden;
+  padding: 40px 20px;
   max-width: 1400px;
-  padding: 40px 0;
-  width: 100%;
 }
 
 // .text-title--1 {
