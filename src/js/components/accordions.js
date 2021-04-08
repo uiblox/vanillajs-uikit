@@ -8,48 +8,46 @@ const accordion = {
     },
     setAccordion(accordGrp) {
         (accordGrp).map((group, index) => {
-            const heading = group.querySelector('.accordion__heading')
-            const detail = group.querySelector('.accordion__detail')
-            heading.setAttribute('id', 'accordionHeader' + index)
-            detail.setAttribute('id', 'accordionPanel' + index)
-            detail.setAttribute('aria-labeledby', 'accordionHeader' + index)
+            const heading = group.querySelector('.accordion__heading');
+            const detail = group.querySelector('.accordion__detail');
+            heading.setAttribute('id', 'accordionHeader' + index);
+            detail.setAttribute('id', 'accordionPanel' + index);
+            detail.setAttribute('aria-labeledby', 'accordionHeader' + index);
             this.registerEvents(group);
         })
     },
     registerEvents(group) {
-        group.addEventListener("click", this.toggleAccordian)
+        group.addEventListener("click", this.toggleAccordian);
     },
     toggleAccordian() {
-        const current = this
+        const current = this;
         const currentBtn = current.querySelector('.accordion__button');
         let expandedState = false;
 
         if (current.classList.contains("is-expanded")) {
             expandedState = false;
             current.classList.remove("is-expanded");
-            currentBtn.classList.remove('active')
+            currentBtn.classList.remove('active');
         } else {
             expandedState = true;
             current.classList.add("is-expanded");
-            currentBtn.classList.add('active')
+            currentBtn.classList.add('active');
         }
-        accordion.setAnimateVisibility(expandedState, current)
+        accordion.setAnimateVisibility(expandedState, current);
         accordion.setAriaState(expandedState, current);
     },
     setAnimateVisibility(openState, current) {
-        const revealDetail = current.querySelector('.accordion__detail')
+        const revealDetail = current.querySelector('.accordion__detail');
         if (openState === false) {
-            revealDetail.classList.remove('animate-visibility')
+            revealDetail.classList.remove('animate-visibility');
         } else {
             setTimeout(function () {
-                revealDetail.classList.add('animate-visibility')
+                revealDetail.classList.add('animate-visibility');
             }, 10)
         }
     },
     setAriaState(openState, group) {
-        openState === false
-            ? group.setAttribute("aria-expanded", "false")
-            : group.setAttribute("aria-expanded", "true");
+        openState === false ? group.setAttribute("aria-expanded", "false") : group.setAttribute("aria-expanded", "true");
     }
 }
 

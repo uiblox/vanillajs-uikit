@@ -1,4 +1,3 @@
-/* Countdown */
 .countdown__container {
   display: flex;
   flex: 1;
@@ -10,41 +9,45 @@
 }
 
 .countdown__days {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   &:after {
     content: "days";
     font-size: 12px;
+    font-weight: normal;
   }
 }
 
 .countdown__hours {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   &:after {
     content: "hours";
     font-size: 12px;
+    font-weight: normal;
   }
 }
 
 .countdown__mins {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   &:after {
     content: "mins";
     font-size: 12px;
+    font-weight: normal;
   }
 }
 
 .countdown__secs {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   &:after {
     content: "secs";
     font-size: 12px;
+    font-weight: normal;
   }
 }

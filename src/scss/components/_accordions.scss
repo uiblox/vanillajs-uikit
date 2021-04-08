@@ -2,9 +2,9 @@
   max-width: 100%;
 
   .accordion__group {
-    padding: 12px 0;
     border-top: 1px solid #000;
     line-height: 1;
+    padding: 12px 0;
 
     .accordion__heading {
       display: flex;
@@ -28,29 +28,30 @@
       .accordion__button {
         &:after {
           content: "+";
-          position: relative;
           font-size: 20px;
           outline-offset: 10px;
+          position: relative;
         }
       }
     }
 
     .accordion__button {
-      margin: 0;
-      border: none;
       background-color: transparent;
+      border: none;
+      cursor: pointer;
+      margin: 0;
       transform: rotate(0deg);
       transition: 0.03s ease;
-      cursor: pointer;
+
       &.active {
-        transform: rotate(45deg);
         transition: 0.03s ease;
+        transform: rotate(45deg);
       }
       &:after {
         content: "-";
-        position: relative;
         font-size: 20px;
         outline-offset: 10px;
+        position: relative;
       }
     }
   }

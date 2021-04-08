@@ -6,8 +6,7 @@ const countDownTimer = {
         }
 
         this.timers.forEach(timer => {
-            this.time = timer;
-            countDownTimer.count(this.time);
+            countDownTimer.count(timer);
         })
     },
     count(root) {
@@ -46,6 +45,7 @@ const countDownTimer = {
         hourDisplay.textContent = `${hours < 10 ? 0 : ''}${hours} :`;
         minsDisplay.textContent = `${mins < 10 ? 0 : ''}${mins} :`;
         secsDisplay.textContent = `${secs < 10 ? 0 : ''}${secs}`;
+
         if (diff < 0) {
             dayDisplay.textContent = `00 :`;
             hourDisplay.textContent = `00 :`;
