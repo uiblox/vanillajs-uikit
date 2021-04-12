@@ -1,17 +1,16 @@
-/* Tabs */
-
-.tabs__container {
-  .tabs--list {
-    width: 100%;
-    display: block;
+.tab__group {
+  .tab__nav {
     background: #d6d6d6;
+    box-shadow: 0 -1px 0 #d6d6d6;
+    display: block;
     margin: 0;
     padding: 0;
-    box-shadow: 0 -1px 0 #d6d6d6;
+    width: 100%;
   }
 
-  .tab--item {
+  .tab__item {
     box-sizing: border-box;
+    cursor: pointer;
     display: inline-block;
     padding: 15px 15px;
     margin: 0;
@@ -21,18 +20,17 @@
     a:active {
       color: #000;
       text-decoration: none;
-      padding: 10px 0;
       transition: color 0.2s ease;
     }
   }
 
-  .tab--item:not(.active):hover {
+  .tab__item:not(.active):hover {
     a {
       color: #fff;
     }
   }
 
-  .tab--item.active {
+  .tab__item.active {
     background: #fff;
 
     a {
@@ -41,11 +39,11 @@
     }
   }
 
-  .tab--contentWrapper {
+  .tab__contentWrapper {
     padding: 10px 15px;
   }
 
-  .tab--content {
+  .tab__content {
     display: none;
 
     .text-group {
@@ -62,7 +60,7 @@
     }
   }
 
-  .tab--content.active {
+  .tab__content.active {
     display: block;
   }
 }
