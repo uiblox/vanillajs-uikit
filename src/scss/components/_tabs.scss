@@ -1,7 +1,7 @@
 .tab__group {
   .tab__nav {
-    background: #d6d6d6;
-    box-shadow: 0 -1px 0 #d6d6d6;
+    background: var(--offDark);
+    box-shadow: 0 -1px 0 var(--offDark);
     display: block;
     margin: 0;
     padding: 0;
@@ -18,7 +18,7 @@
     a,
     a:visited,
     a:active {
-      color: #000;
+      color: var(--dark);
       text-decoration: none;
       transition: color 0.2s ease;
     }
@@ -26,15 +26,15 @@
 
   .tab__item:not(.active):hover {
     a {
-      color: #fff;
+      color: #ffffff;
     }
   }
 
   .tab__item.active {
-    background: #fff;
+    background: #ffffff;
 
     a {
-      border-bottom: 1px solid #d6d6d6;
+      border-bottom: 1px solid var(--offDark);
       z-index: 10;
     }
   }
