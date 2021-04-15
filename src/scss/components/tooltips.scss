@@ -1,5 +1,5 @@
 .tooltip {
-  box-sizing: border-box;
+  display: inline-block;
   font-size: 16px;
   white-space: nowrap;
   position: relative;
@@ -22,44 +22,103 @@
 }
 
 .tooltip__container {
-  position: absolute;
-  top: 0;
   opacity: 0;
   visibility: hidden;
   background: white;
   border: 1px solid var(--dark);
-  height: 0;
   padding: 24px;
-  min-width: 150px;
-  max-width: 300px;
+  // min-width: 150px;
+  // max-width: 300px;
   transition: 0.2s ease opacity;
   &.active {
     opacity: 1;
     visibility: visible;
-    height: auto;
   }
-  &:before {
-    content: "";
-    width: 0;
-    height: 0;
-    border-bottom: 11px solid var(--dark);
-    border-right: 11px solid transparent;
-    border-left: 11px solid transparent;
+
+  .arrow,
+  .arrow::before {
     position: absolute;
-    top: -11px;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
   }
-  &:after {
+
+  .arrow::before {
     content: "";
-    width: 0;
-    height: 0;
-    border-bottom: 10px solid #fff;
-    border-right: 10px solid transparent;
-    border-left: 10px solid transparent;
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
+    transform: rotate(45deg);
+    background: white;
+    border-left: 1px solid #333;
+    border-top: 1px solid #333;
   }
+  .arrow::after {
+    content: "";
+    transform: rotate(45deg);
+    background: #333;
+    width: 9px;
+    height: 9px;
+  }
+  &[data-popper-placement^="top"] > .arrow {
+    bottom: -6px;
+  }
+  &[data-popper-placement^="bottom"] > .arrow {
+    top: -6px;
+  }
+
+  // &[data-popper-placement^="top"] {
+  //   .arrow {
+  //     position: absolute;
+  //     width: 22px;
+  //     height: 11px;
+  //     &::before {
+  //       position: absolute;
+  //       width: 8px;
+  //       height: 8px;
+  //       background: red;
+  //       visibility: visible;
+  //       content: "";
+  //       transform: rotate(45deg);
+  //       // bottom: 0;
+  //       // content: "";
+  //       // // width: 0;
+  //       // // height: 0;
+  //       // border-top: 11px solid var(--dark);
+  //       // border-right: 11px solid transparent;
+  //       // border-left: 11px solid transparent;
+  //       // position: absolute;
+  //       // top: -11px;
+  //       // left: 50%;
+  //       // transform: translateX(-50%);
+  //     }
+  //   }
+  // }
+  // &[data-popper-placement^="bottom"] {
+  //   .arrow {
+  //     position: relative;
+  //     &::before {
+  //       top: 0;
+  //       content: "";
+  //       width: 0;
+  //       height: 0;
+  //       border-bottom: 11px solid var(--dark);
+  //       border-right: 11px solid transparent;
+  //       border-left: 11px solid transparent;
+  //       position: absolute;
+  //       // top: -11px;
+  //       // left: 50%;
+  //       // transform: translateX(-50%);
+  //     }
+  //   }
+  // }
+
+  // &:after {
+  //   content: "";
+  //   width: 0;
+  //   height: 0;
+  //   border-bottom: 10px solid #fff;
+  //   border-right: 10px solid transparent;
+  //   border-left: 10px solid transparent;
+  //   position: absolute;
+  //   top: -10px;
+  //   // left: 50%;
+  //   // transform: translateX(-50%);
+  // }
 }
