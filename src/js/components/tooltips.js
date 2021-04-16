@@ -1,4 +1,5 @@
 import { createPopper } from '@popperjs/core';
+import flip from "@popperjs/core/lib/modifiers/flip";
 
 const tooltips = {
     init() {
@@ -10,20 +11,20 @@ const tooltips = {
         this.renderToolTipContainer();
     },
     registerEvents() {
-        this.tooltipElements.forEach(tip => {
-            tip.addEventListener('click', (e) => {
+        this.tooltipElements.forEach(ele => {
+            ele.addEventListener('click', (e) => {
                 if (e.target.className === 'tooltip__button') {
-                    this.openTip(tip);
+                    this.openTip(ele);
                 }
             })
-            tip.addEventListener('mouseenter', (e) => {
+            ele.addEventListener('mouseenter', (e) => {
                 if (e.target.className === 'tooltip__button') {
-                    this.openTip(tip);
+                    this.openTip(ele);
                 }
             }, true)
-            tip.addEventListener('mouseleave', (e) => {
+            ele.addEventListener('mouseleave', (e) => {
                 if (e.target.className === 'tooltip__button') {
-                    this.closeTip();
+                    this.closeTip(ele);
                 }
             }, true)
         })
@@ -35,43 +36,47 @@ const tooltips = {
     },
     openTip(tooltip) {
         const toolTipText = tooltip.querySelector('.tooltip__wrapper').getAttribute('data-tooltip-content');
-        // const tipCoords = tooltip.getBoundingClientRect();
-        const arrow = this.toolTipContainer.querySelector('.arrow');
-
-        if (!this.toolTipContainer.classList.contains('active')) {
-            // const coords = {
-            //     top: tipCoords.top + window.scrollY,
-            //     left: tipCoords.left + window.scrollX
-            // }
-
-            createPopper(tooltip, this.toolTipContainer, {
+        tooltip.querySelector('.tooltip__button').setAttribute('aria-expanded', true);
+        const tipContainer = this.toolTipContainer;
+        const arrow = tipContainer.querySelector('.arrow');
+        if (!tipContainer.classList.contains('active')) {
+            createPopper(tooltip, tipContainer, {
+                flip,
                 modifiers: [
-
+                    {
+                        name: "arrow",
+                        options: {
+                            element: arrow,
+                            padding: 3
+                        }
+                    },
                     {
                         name: 'offset',
                         options: {
                             offset: [0, 16],
 
-                        },
+                        }
                     },
                     {
-                        name: 'arrow',
+                        name: "preventOverflow",
                         options: {
-                            element: arrow,
-                        },
-                    },
+                            padding: 16
+                        }
+                    }
                 ],
             });
-            this.toolTipContainer.querySelector('.content').textContent = toolTipText;
-            // const offsetLeft = (this.toolTipContainer.offsetWidth - tooltip.offsetWidth) / 2;
-            // const offsetTop = tooltip.offsetWidth
-            // this.toolTipContainer.style.transform = `translate(${coords.left - offsetLeft}px, ${coords.top + 32}px)`
-            this.toolTipContainer.classList.toggle('active');
+            tipContainer.querySelector('.content').textContent = toolTipText;
+            tipContainer.setAttribute('aria-hidden', false);
+            tooltip.setAttribute('aria-expanded', true);
+            tipContainer.classList.toggle('active');
+
         }
     },
-    closeTip() {
+    closeTip(tooltip) {
         this.toolTipContainer.classList.remove('active');
         this.toolTipContainer.querySelector('.content').textContent = '';
+        this.toolTipContainer.setAttribute('aria-hidden', false);
+        tooltip.querySelector('.tooltip__button').setAttribute('aria-expanded', false);
     }
 }
 

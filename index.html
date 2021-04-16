@@ -179,20 +179,34 @@
     </div>
     <!-- tooltips -->
     <div class="demo__container">
-        <h2>Tooltips</h2>
+        <h2>Tooltip Examples</h2>
         <h3>Tooltip Icon</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="tooltip">
-                <span class="tooltip__wrapper" data-tooltip-label="" data-tooltip-icon=""
-                    data-tooltip-content="Tooltip content ....">
+        <p>Tooltips embeded in paragraphs of text. Tooltips will not overflow window when screen is constrained.
+            <span class="tooltip">
+                <span class="tooltip__wrapper"
+                    data-tooltip-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non ornare nisl, ac venenatis ex.">
                     <button class="tooltip__button" tabindex="0" aria-describedby="tooltipContainer"
                         aria-expanded="false" aria-label="More information tooltip"></button>
                 </span>
-            </span></p>
-
-        <h3>Tooltip text</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </span>
+        </p>
+        <p>Tooltips flip to top or bottom <br>of tooltip trigger based <br>on available space.
+            <span class="tooltip">
+                <span class="tooltip__wrapper" data-tooltip-content="Nullam eu orci vel tortor.">
+                    <button class="tooltip__button" tabindex="0" aria-describedby="tooltipContainer"
+                        aria-expanded="false" aria-label="More information tooltip"></button>
+                </span>
+            </span>
+        </p>
+        <h3>Tooltips on headings
+            <span class="tooltip">
+                <span class="tooltip__wrapper"
+                    data-tooltip-content="Nullam eu orci vel tortor semper euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non ornare nisl, ac venenatis ex.">
+                    <button class="tooltip__button" tabindex="0" aria-describedby="tooltipContainer"
+                        aria-expanded="false" aria-label="More information tooltip"></button>
+                </span>
+            </span>
+        </h3>
     </div>
 
     <script src="dist/js/app.js"></script>
