@@ -5,34 +5,50 @@
 }
 
 .tooltip__button {
-  background-color: transparent;
-  border: 1px solid var(--dark);
-  border-radius: 50%;
-  cursor: pointer;
-  height: 16px;
-  line-height: 0.8;
-  margin: 0;
-  outline-offset: 2px;
-  padding: 0;
-  width: 16px;
-  &:after {
-    content: "i";
+  &[data-tip-icon] {
+    background-color: transparent;
+    border: 1px solid var(--dark);
+    border-radius: 50%;
+    cursor: pointer;
+    height: 16px;
+    line-height: 0.8;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    width: 16px;
+    &:after {
+      content: "i";
+    }
+  }
+  &[data-tip-text] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--dark);
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 0.8;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    padding-bottom: 5px;
+  }
+  &:focus {
+    outline: 1px dashed var(--dark);
+    outline-offset: 2px;
   }
 }
 
 .tooltip__container {
-  background: #fff;
+  background: var(--white);
   border: 1px solid var(--dark);
+  display: none;
   height: 0;
   min-width: 100px;
   max-width: 290px;
-  opacity: 0;
   transition: 0.4s ease opacity;
-  visibility: hidden;
   &.active {
+    display: inline-block;
     height: auto;
-    opacity: 1;
-    visibility: visible;
   }
 
   .content {

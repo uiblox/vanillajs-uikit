@@ -27,6 +27,11 @@ const tooltips = {
                     this.closeTip(ele);
                 }
             }, true)
+            ele.addEventListener('blur', (e) => {
+                if (e.target.className === 'tooltip__button') {
+                    this.closeTip(ele);
+                }
+            }, true)
         })
     },
     renderToolTipContainer() {
