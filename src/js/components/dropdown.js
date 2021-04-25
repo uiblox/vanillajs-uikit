@@ -9,7 +9,6 @@ const dropDown = {
             return;
         }
         this.buildMenu();
-        console.log(categories)
     },
     buildMenu() {
         this.dropDownContainers.forEach(container => {
@@ -35,6 +34,7 @@ const dropDown = {
     },
     registerEventListenered(ele) {
         ele.addEventListener('click', this.toggleDropDown)
+        ele.addEventListener('click', this.dropDownSelection)
         window.addEventListener('click', (e) => {
             dropDown.closeDropDown(e, ele);
         })
@@ -135,8 +135,21 @@ const dropDown = {
         // }
     },
     // Updates dropdown with selected value
-    selection(item, dropDownBtn) {
-        dropDownBtn.childNodes[0].textContent = item.textContent
+    dropDownSelection(e) {
+        const btn = this.querySelector('.u-dropdownbtn')
+        if (e.target.className === 'u-dropdown-item' || e.target.className === 'u-dropdown-link') {
+            e.preventDefault();
+            switch (e.target.className) {
+                case 'u-dropdown-item':
+                    btn.childNodes[0].textContent = e.target.textContent
+                    break;
+                case 'u-dropdown-link':
+                    btn.childNodes[0].textContent = e.target.textContent
+                    break;
+                default:
+                    return
+            }
+        }
     }
 }
 
