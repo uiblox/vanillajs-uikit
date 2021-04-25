@@ -28,3 +28,5 @@ const categories = [
         category: "Free Add-ons"
     }
 ]
+
+export default categories;

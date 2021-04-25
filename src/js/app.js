@@ -3,6 +3,7 @@ import countDownTimer from "./components/countDownTimer";
 import tabsPanel from "./components/tabsPanel";
 import carousel from "./components/carousel";
 import tooltips from "./components/tooltips";
+import dropDown from "./components/dropdown";
 
 window.addEventListener('DOMContentLoaded', () => {
     accordions.init();
@@ -10,4 +11,5 @@ window.addEventListener('DOMContentLoaded', () => {
     tabsPanel.init();
     carousel.init();
     tooltips.init();
+    dropDown.init();
 });

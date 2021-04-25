@@ -1,4 +1,5 @@
 import { hasClass } from "./helpers";
+import categories from '../../data/categories';
 
 const dropDown = {
     init() {
@@ -8,13 +9,15 @@ const dropDown = {
             return;
         }
         this.buildMenu();
+        console.log(categories)
     },
     buildMenu() {
         this.dropDownContainers.forEach(container => {
-            this.dataSet = categories;
-            this.dropDownBtn = container.querySelector('.u-dropdownbtn');
-            this.menu = container.querySelector('.u-dropdown-menu').innerHTML = this.templateData(this.dataSet, this.listBuilder);
-            this.setKeys(container, this.dropDownBtn);
+            const dataSet = categories;
+            const dropDownBtn = container.querySelector('.u-dropdownbtn');
+            const menu = container.querySelector('.u-dropdown-menu').innerHTML = this.templateData(dataSet, this.listBuilder);
+            // this.setKeys(container, dropDownBtn);
+            this.registerEventListenered(container);
         })
     },
     // accepts a data set and template. Will loop through data set and build an html string for each data point
@@ -30,7 +33,33 @@ const dropDown = {
         let template = `<li class='u-dropdown-item'><a role='menuitem' data-moduleId='${listItem.category}' class='u-dropdown-link' href="#">${listItem.category}</a></li>`;
         return template;
     },
-    //
+    registerEventListenered(ele) {
+        ele.addEventListener('click', this.toggleDropDown)
+        window.addEventListener('click', (e) => {
+            dropDown.closeDropDown(e, ele);
+        })
+    },
+    toggleDropDown(e) {
+        if (e.target.className === 'u-dropdownbtn') {
+            this.classList.toggle('open');
+            if (hasClass(this, "open")) {
+                this.setAttribute('aria-expanded', true);
+                // when using keyboard, ensures that first item that is focused is
+                if (e.detail === 0) {
+                    first.focus();
+                }
+            } else {
+                this.setAttribute('aria-expanded', false);
+            }
+        }
+    },
+    closeDropDown(e, ele) {
+        if (e.target.className !== 'u-dropdownbtn') {
+            if (hasClass(ele, "open")) {
+                ele.classList.remove('open')
+            }
+        }
+    },
     setKeys(container, dropDownBtn) {
         const menuItems = Array.prototype.slice.call(container.querySelectorAll('.u-dropdown-item')),
             menuLinks = Array.prototype.slice.call(container.querySelectorAll('.u-dropdown-item a'));
@@ -85,25 +114,25 @@ const dropDown = {
             }
         }
         // toggles the drop down open or closed
-        function toogleDropDown(e) {
-            const container = this.parentNode;
-            container.classList.toggle('open');
-            if (hasClass(container, "open")) {
-                this.setAttribute('aria-expanded', true);
-                // when using keyboard, ensures that first item that is focused is
-                if (e.detail === 0) {
-                    first.focus();
-                }
-            } else {
-                this.setAttribute('aria-expanded', false);
-            }
-        }
+        // function toogleDropDown(e) {
+        //     const container = this.parentNode;
+        //     container.classList.toggle('open');
+        //     if (hasClass(container, "open")) {
+        //         this.setAttribute('aria-expanded', true);
+        //         // when using keyboard, ensures that first item that is focused is
+        //         if (e.detail === 0) {
+        //             first.focus();
+        //         }
+        //     } else {
+        //         this.setAttribute('aria-expanded', false);
+        //     }
+        // }
         // will close drop down if user clicks on element other then open list
-        function closeDropDown(e) {
-            if (!hasClass(e.target, 'u-dropdownbtn')) {
-                container.classList.remove('open')
-            }
-        }
+        // function closeDropDown(e) {
+        //     if (!hasClass(e.target, 'u-dropdownbtn')) {
+        //         container.classList.remove('open')
+        //     }
+        // }
     },
     // Updates dropdown with selected value
     selection(item, dropDownBtn) {
