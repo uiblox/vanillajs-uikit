@@ -15,7 +15,6 @@ const dropDown = {
             const dataSet = categories;
             const dropDownBtn = container.querySelector('.u-dropdownbtn');
             const menu = container.querySelector('.u-dropdown-menu').innerHTML = this.templateData(dataSet, this.listBuilder);
-            // this.setKeys(container, dropDownBtn);
             this.registerEventListenered(container);
         })
     },
@@ -35,6 +34,7 @@ const dropDown = {
     registerEventListenered(ele) {
         ele.addEventListener('click', this.toggleDropDown)
         ele.addEventListener('click', this.dropDownSelection)
+        ele.addEventListener('keydown', this.keySelection)
         window.addEventListener('click', (e) => {
             dropDown.closeDropDown(e, ele);
         })
@@ -45,8 +45,9 @@ const dropDown = {
             if (hasClass(this, "open")) {
                 this.setAttribute('aria-expanded', true);
                 // when using keyboard, ensures that first item that is focused is
+                const menuLinks = Array.prototype.slice.call(this.querySelectorAll('.u-dropdown-item a'));
                 if (e.detail === 0) {
-                    first.focus();
+                    menuLinks[0].focus();
                 }
             } else {
                 this.setAttribute('aria-expanded', false);
@@ -60,79 +61,45 @@ const dropDown = {
             }
         }
     },
-    setKeys(container, dropDownBtn) {
-        const menuItems = Array.prototype.slice.call(container.querySelectorAll('.u-dropdown-item')),
-            menuLinks = Array.prototype.slice.call(container.querySelectorAll('.u-dropdown-item a'));
+    keySelection(e) {
+        if (e.target.className === 'u-dropdown-link') {
 
-        let first = menuLinks[0],
-            last = menuLinks[menuLinks.length - 1],
-            lastActiveElement = document.activeElement;
+            const menuLinks = Array.prototype.slice.call(this.querySelectorAll('.u-dropdown-item a'));
+            const dropDownBtn = this.querySelector('.u-dropdownbtn');
 
-        menuItems.forEach(itemlink => {
-            itemlink.addEventListener('click', clickSelection)
-        })
+            let first = menuLinks[0],
+                last = menuLinks[menuLinks.length - 1],
+                lastActiveElement = document.activeElement,
+                currentPosition = menuLinks.indexOf(e.target);
 
-        menuLinks.forEach(itemlink => {
-            itemlink.addEventListener('keydown', keySelection)
-        })
-
-        this.dropDownBtn.addEventListener('click', toogleDropDown);
-        window.addEventListener('click', closeDropDown);
-        // update dropdown with selection list item
-        function clickSelection(e) {
-            e.preventDefault()
-            container.classList.remove('open')
-            dropDown.selection(this, dropDownBtn)
-        }
-        // user can tab through menu items. Will loop
-        function keySelection(e) {
-            e.preventDefault()
-            var current = menuLinks.indexOf(this)
-            if (e.keyCode === 32 || e.keyCode === 13) {
-                // space keyCode: 32 | enter keyCode: 13
-                container.classList.remove('open')
-                dropDownBtn.focus();
-                dropDown.selection(this.parentNode, dropDownBtn)
-            } else if (e.keyCode === 39 || e.keyCode === 40) {
-                // right keyCode: 39 | down keyCode: 40
-                if (current !== menuLinks.length - 1) {
-                    menuLinks[current + 1].focus()
+            // right keyCode: 39 | down keyCode: 40
+            if (e.keyCode === 39 || e.keyCode === 40) {
+                if (currentPosition !== menuLinks.length - 1) {
+                    menuLinks[currentPosition + 1].focus()
+                    console.log(currentPosition)
                 } else {
                     first.focus()
                 }
-            } else if (e.keyCode === 37 || e.keyCode === 38) {
-                // left keyCode: 37 | up keyCode: 38
-                if (current !== 0) {
-                    menuLinks[current - 1].focus()
+            }
+            // left keyCode: 37 | up keyCode: 38
+            if (e.keyCode === 37 || e.keyCode === 38) {
+                if (currentPosition !== 0) {
+                    menuLinks[currentPosition - 1].focus()
                 } else {
                     last.focus()
                 }
-            } else if (e.keyCode === 27) {
-                // esc keyCode: 27
-                dropDownBtn.focus()
-                container.classList.remove('open')
+            }
+            // esc keyCode: 27
+            if (e.keyCode === 27) {
+                dropDownBtn.focus();
+                this.classList.remove('open')
+            }
+            // enter keyCode: 13
+            if (e.keyCode === 13) {
+                dropDownBtn.focus();
+                return
             }
         }
-        // toggles the drop down open or closed
-        // function toogleDropDown(e) {
-        //     const container = this.parentNode;
-        //     container.classList.toggle('open');
-        //     if (hasClass(container, "open")) {
-        //         this.setAttribute('aria-expanded', true);
-        //         // when using keyboard, ensures that first item that is focused is
-        //         if (e.detail === 0) {
-        //             first.focus();
-        //         }
-        //     } else {
-        //         this.setAttribute('aria-expanded', false);
-        //     }
-        // }
-        // will close drop down if user clicks on element other then open list
-        // function closeDropDown(e) {
-        //     if (!hasClass(e.target, 'u-dropdownbtn')) {
-        //         container.classList.remove('open')
-        //     }
-        // }
     },
     // Updates dropdown with selected value
     dropDownSelection(e) {
