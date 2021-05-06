@@ -16,7 +16,7 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  display: none;
+  visibility: hidden;
 }
 
 .swiper-pagination-bullet {
@@ -41,6 +41,7 @@
   .swiper-button-prev {
     color: var(--dark);
     display: inline-block;
+    visibility: visible;
   }
 
   .swiper-button-prev,
