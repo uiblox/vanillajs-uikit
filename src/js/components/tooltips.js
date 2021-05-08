@@ -40,13 +40,14 @@ const tooltips = {
         this.toolTipContainer = document.querySelector('.tooltip__container');
     },
     openTip(tooltip) {
+        const element = document.querySelector('.demo__container');
         const toolTipText = tooltip.querySelector('.tooltip__wrapper').getAttribute('data-tooltip-content');
         tooltip.querySelector('.tooltip__button').setAttribute('aria-expanded', true);
         const tipContainer = this.toolTipContainer;
         const arrow = tipContainer.querySelector('.arrow');
         if (!tipContainer.classList.contains('active')) {
             createPopper(tooltip, tipContainer, {
-                flip,
+                placement: 'bottom',
                 modifiers: [
                     {
                         name: "arrow",
@@ -56,10 +57,17 @@ const tooltips = {
                         }
                     },
                     {
+                        name: 'flip',
+                        options: {
+                            fallbackPlacements: ['top'],
+                            padding: 20,
+                            boundary: element
+                        }
+                    },
+                    {
                         name: 'offset',
                         options: {
                             offset: [0, 16],
-
                         }
                     },
                     {
