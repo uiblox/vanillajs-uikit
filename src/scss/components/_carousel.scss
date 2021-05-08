@@ -5,6 +5,10 @@
   height: 477px;
 }
 
+.swiper-wrapper {
+  margin-left: -20px;
+}
+
 .swiper-slide {
   align-items: center;
   display: flex;
@@ -37,6 +41,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .swiper-wrapper {
+    margin-left: -50px;
+  }
+
   .swiper-button-next,
   .swiper-button-prev {
     color: var(--dark);
@@ -51,9 +59,9 @@
   }
 
   .swiper-button-prev {
-    right: 100px;
+    right: 150px;
   }
   .swiper-button-next {
-    right: 25px;
+    right: 75px;
   }
 }
