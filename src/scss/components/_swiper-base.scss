@@ -1,0 +1,34 @@
+.swiper-container {
+  position: relative;
+  width: 100%;
+
+  .swiper-slide {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    position: absolute;
+    color: var(--dark);
+    display: inline-block;
+  }
+
+  .swiper-pagination-bullet {
+    background: var(--dark);
+    border-radius: 0;
+    height: 4px;
+    width: 32px;
+    &.swiper-pagination-bullet-active {
+      border-radius: 0;
+      height: 5px;
+    }
+  }
+
+  .swiper-container-horizontal
+    > .swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 8px;
+  }
+}

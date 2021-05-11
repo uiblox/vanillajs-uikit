@@ -1,3 +1,4 @@
+@import "swiper/swiper-bundle.css";
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap");
 
 :root {
@@ -39,5 +40,8 @@ p {
   margin: 0 auto;
   max-width: 1400px;
   overflow: hidden;
-  padding: 40px 20px;
+  padding: 40px 0px;
+  @media screen and (min-width: 768px) {
+    padding: 40px 20px;
+  }
 }

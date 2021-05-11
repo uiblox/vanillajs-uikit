@@ -1,0 +1,54 @@
+.carousel__tiles {
+  box-shadow: 0px 1px 0px 0px var(--dark), 0px -1px 0px 0px var(--dark),
+    -1px -1px 0px 0px var(--dark);
+  height: 370px;
+  .swiper-wrapper {
+    box-sizing: border-box;
+    margin-left: -1px;
+  }
+
+  .swiper-slide {
+    box-shadow: 1px 0px 0px 0px var(--dark);
+    box-sizing: border-box;
+    padding: 20px;
+    padding-right: 40px;
+    .text__block {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      width: 100%;
+      .text__block-top {
+        height: 100%;
+      }
+      .text__block-bottom {
+        border-top: 1px solid var(--dark);
+        height: 100%;
+      }
+    }
+  }
+
+  .tiles-pagination {
+    visibility: visible;
+    @media screen and (min-width: 768px) {
+      visibility: hidden;
+    }
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    left: initial;
+    top: 50%;
+    visibility: visible;
+    @media screen and (min-width: 768px) {
+      visibility: hidden;
+    }
+  }
+
+  .swiper-button-prev {
+    right: 150px;
+  }
+
+  .swiper-button-next {
+    right: 10px;
+  }
+}

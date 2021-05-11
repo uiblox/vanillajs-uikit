@@ -1,10 +1,10 @@
-import SwiperCore, { Navigation, Pagination } from 'swiper/core'
+import SwiperCore, { Navigation, Pagination } from 'swiper/core';
 SwiperCore.use([Navigation, Pagination]);
 
 const carousel = function () {
 
     const init = function () {
-        this.carousel = Array.prototype.slice.call(document.querySelectorAll('.swiper-container'));
+        this.carousel = Array.prototype.slice.call(document.querySelectorAll('.carousel'));
         if (!this.carousel.length) {
             return;
         }
@@ -12,9 +12,17 @@ const carousel = function () {
     }
 
     const enableCarousel = function () {
-        this.mySwiper = new SwiperCore('.swiper-container', {
+        this.mySwiper = new SwiperCore('.carousel', {
             spaceBetween: 0,
             loop: true,
+            pagination: {
+                el: '.carousel-pagination',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
             breakpoints: {
                 320: {
                     slidesPerView: 1
@@ -23,14 +31,7 @@ const carousel = function () {
                     slidesPerView: 1
                 }
             },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+
             on: {
                 breakpoint: function (swiper) {
                     if (swiper.navigation.prevEl !== undefined || swiper.navigation.nextEl !== undefined) {
@@ -60,8 +61,7 @@ const carousel = function () {
 
     return {
         init: init,
-        enableCarousel: enableCarousel,
-        setNavigation: setNavigation
+        enableCarousel: enableCarousel
     }
 }
 
