@@ -5,6 +5,7 @@ import carousel from "./components/carousel";
 import tileCarousel from "./components/tileCarousel";
 import tooltips from "./components/tooltips";
 import dropDown from "./components/dropdown";
+import Modal from "./components/modal";
 
 window.addEventListener('DOMContentLoaded', () => {
     accordions.init();
@@ -14,4 +15,5 @@ window.addEventListener('DOMContentLoaded', () => {
     dropDown.init();
     carousel.init();
     tileCarousel.init();
+    Modal.init();
 });

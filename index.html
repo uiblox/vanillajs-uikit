@@ -257,7 +257,26 @@
             <div class="swiper-pagination tiles-pagination"></div>
             <div class="swiper-button-hidden"></div>
             <div class="swiper-button-next"></div>
-
+        </div>
+    </div>
+    <div class="demo__container">
+        <h2>Modal with keyboard trap</h2>
+        <button class="modal__trigger" data-modal-trigger="modal-0">Open Modal</button>
+    </div>
+    <div class="modal modal__state-hidden" data-modal="modal-0">
+        <div class="modal__container">
+            <a class="modal__close" href="">X</a>
+            <div class="modal__content">
+                <h2> Modal with keyboard trap</h2>
+                <a href="javascript:void(0)">This is a link</a>
+                <p>Make note that there are 3 elements within this modal that should naturally obtain keyboard focus.
+                    Normally tabbing would allow the user to tab through these elements and ultimately on elements
+                    outside of this modal. That is not what we want.</p>
+                <p>Here we see that tabbing will loop round the elements present in the modal. When the modal is closed,
+                    keyboard focus will go back to the elemnt that maintained focus prior to the modal opening and user
+                    can continue to tab through the document as normal</p>
+                <button type="button">This is a link</button>
+            </div>
         </div>
     </div>
     <script src="dist/js/app.js"></script>
