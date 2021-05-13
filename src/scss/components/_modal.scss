@@ -1,3 +1,32 @@
-.modal__state-hidden {
-  display: none;
+body {
+  position: relative;
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  max-width: 100%;
+  height: 400px;
+  max-height: 100%;
+  z-index: 9999;
+  background: #fff;
+  overflow: auto;
+
+  &.modal__state-hidden {
+    display: none;
+  }
+
+  .modal__container {
+    display: relative;
+    .modal__close {
+      position: absolute;
+      right: 10px;
+    }
+  }
 }
