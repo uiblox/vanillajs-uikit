@@ -6,26 +6,36 @@ body {
 }
 
 .modal {
+  align-items: center;
+  background: var(--dark);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
   position: fixed;
-  padding: 20px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  max-width: 100%;
-  height: 400px;
-  max-height: 100%;
+  right: 0;
+  top: 0;
   z-index: 9999;
-  background: #fff;
-  overflow: auto;
-  box-shadow: 0 0 3px 1px var(--dark);
-
+  @media screen and (min-width: 768px) {
+    opacity: 0.95;
+  }
   &.modal__state-hidden {
     display: none;
   }
-
-  .modal__container {
-    display: relative;
+  .modal__dialog {
+    align-items: center;
+    background: #fff;
+    height: 100%;
+    justify-content: center;
+    overflow-y: hidden;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    @media screen and (min-width: 768px) {
+      height: 50%;
+      width: 60%;
+      overflow-y: scroll;
+    }
     .button__modal-close {
       position: absolute;
       right: 10px;
