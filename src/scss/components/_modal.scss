@@ -6,6 +6,11 @@ body {
 }
 
 .modal {
+  a:focus,
+  button:focus {
+    outline: 1px dashed var(--dark);
+    outline-offset: 2px;
+  }
   align-items: center;
   background: var(--dark);
   bottom: 0;
@@ -16,6 +21,7 @@ body {
   right: 0;
   top: 0;
   z-index: 9999;
+
   @media screen and (min-width: 768px) {
     opacity: 0.95;
   }
@@ -43,4 +49,9 @@ body {
       padding: 20px;
     }
   }
+}
+
+.button__modal-trigger {
+  outline: 1px dashed var(--dark);
+  outline-offset: 2px;
 }
