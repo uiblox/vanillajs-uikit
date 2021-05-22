@@ -1,7 +1,13 @@
 .video__container {
+  align-items: center;
   display: flex;
   justify-content: center;
+  position: relative;
   .video {
     width: 80%;
+  }
+  .video__icon {
+    position: absolute;
+    width: 100px;
   }
 }
