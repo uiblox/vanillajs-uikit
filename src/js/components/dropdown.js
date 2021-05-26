@@ -63,7 +63,6 @@ const dropDown = {
     },
     keySelection(e) {
         if (e.target.className === 'u-dropdown-link') {
-
             const menuLinks = Array.prototype.slice.call(this.querySelectorAll('.u-dropdown-item a'));
             const dropDownBtn = this.querySelector('.u-dropdownbtn');
 
@@ -74,15 +73,16 @@ const dropDown = {
 
             // right keyCode: 39 | down keyCode: 40
             if (e.keyCode === 39 || e.keyCode === 40) {
+                e.preventDefault();
                 if (currentPosition !== menuLinks.length - 1) {
                     menuLinks[currentPosition + 1].focus()
-                    console.log(currentPosition)
                 } else {
                     first.focus()
                 }
             }
             // left keyCode: 37 | up keyCode: 38
             if (e.keyCode === 37 || e.keyCode === 38) {
+                e.preventDefault();
                 if (currentPosition !== 0) {
                     menuLinks[currentPosition - 1].focus()
                 } else {
@@ -96,6 +96,7 @@ const dropDown = {
             }
             // enter keyCode: 13
             if (e.keyCode === 13) {
+                dropDownSelection()
                 dropDownBtn.focus();
                 return
             }
