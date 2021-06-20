@@ -7,15 +7,17 @@ import tooltips from "./components/tooltips";
 import dropDown from "./components/dropdown";
 import Modal from "./components/modal";
 import autoPlay from "./components/autoPlay";
+import tabsCarousel from "./components/tabsCarousel";
 
 window.addEventListener('DOMContentLoaded', () => {
+    autoPlay.init()
     accordions.init();
     countDownTimer.init();
+    dropDown.init();
+    Modal.init();
     tabsPanel.init();
     tooltips.init();
-    dropDown.init();
     carousel.init();
     tileCarousel.init();
-    Modal.init();
-    autoPlay.init()
+    tabsCarousel.init();
 });

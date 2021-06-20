@@ -12,12 +12,13 @@ const carousel = function () {
     }
 
     const enableCarousel = function () {
-        this.mySwiper = new SwiperCore('.carousel', {
+        this.defaultCarousel = new SwiperCore('.carousel', {
             spaceBetween: 0,
             loop: true,
             pagination: {
                 el: '.carousel-pagination',
-                clickable: true
+                clickable: true,
+                type: 'bullets',
             },
             navigation: {
                 nextEl: '.swiper-button-next',

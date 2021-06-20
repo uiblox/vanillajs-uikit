@@ -1,0 +1,90 @@
+@import "swiper/components/effect-fade/effect-fade.scss";
+
+.swiper-container {
+  &.carousel__tabs {
+    height: 500px;
+
+    .swiper-wrapper {
+      box-sizing: border-box;
+      @media screen and (min-width: 768px) {
+        padding-top: 30px;
+      }
+    }
+
+    .swiper-slide {
+      align-items: center;
+      display: flex;
+      font-size: 40px;
+      justify-content: center;
+      &:nth-child(even) {
+        background: var(--offDark);
+        background-position: 50% 50%;
+        background-size: cover;
+      }
+      &:nth-child(odd) {
+        background: var(--slate);
+      }
+    }
+
+    .tabs-pagination {
+      @media screen and (min-width: 768px) {
+        top: 20px;
+        width: auto;
+      }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      left: initial;
+      top: 50%;
+      visibility: visible;
+      @media screen and (min-width: 768px) {
+        visibility: hidden;
+      }
+    }
+
+    .swiper-button-prev {
+      right: 150px;
+    }
+
+    .swiper-button-next {
+      right: 10px;
+    }
+
+    .tabs-pagination {
+      @extend .swiper-pagination;
+    }
+
+    .tabs-pagination {
+      .swiper-pagination-bullet {
+        @media screen and (min-width: 768px) {
+          z-index: 1000;
+          top: 20px;
+          width: auto;
+          padding: 0 10px;
+          width: auto;
+          &::before {
+            white-space: nowrap;
+            position: relative;
+            top: -20px;
+          }
+          &:nth-of-type(1)::before {
+            content: "tab 1";
+          }
+          &:nth-of-type(2)::before {
+            content: "tab number 2";
+          }
+          &:nth-of-type(3)::before {
+            content: "tab with longer text";
+          }
+          &:nth-of-type(4)::before {
+            content: "tab 4";
+          }
+          &.swiper-pagination-bullet-active {
+            background: red;
+          }
+        }
+      }
+    }
+  }
+}

@@ -30,4 +30,8 @@
   .swiper-button-next {
     right: 75px;
   }
+
+  .carousel-pagination {
+    @extend .swiper-pagination;
+  }
 }

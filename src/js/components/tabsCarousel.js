@@ -1,10 +1,10 @@
-import SwiperCore, { Navigation, Pagination } from 'swiper/core';
-SwiperCore.use([Navigation, Pagination]);
+import SwiperCore, { Navigation, Pagination, EffectFade } from 'swiper/core';
+SwiperCore.use([Navigation, Pagination, EffectFade]);
 
-const tileCarousel = function () {
+const tabsCarousel = function () {
 
     const init = function () {
-        this.carousel = Array.prototype.slice.call(document.querySelectorAll('.carousel__tiles'));
+        this.carousel = Array.prototype.slice.call(document.querySelectorAll('.carousel__tabs'));
         if (!this.carousel.length) {
             return;
         }
@@ -12,21 +12,25 @@ const tileCarousel = function () {
     }
 
     const enableCarousel = function () {
-        this.mySwiper = new SwiperCore('.carousel__tiles', {
+        this.carouselTabs = new SwiperCore('.carousel__tabs', {
             spaceBetween: 0,
             loop: true,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
             breakpoints: {
                 320: {
                     allowTouchMove: true,
                     slidesPerView: 1
                 },
                 768: {
-                    slidesPerView: 4,
-                    allowTouchMove: false
+                    allowTouchMove: false,
+                    slidesPerView: 1
                 }
             },
             pagination: {
-                el: '.tiles-pagination',
+                el: '.tabs-pagination',
                 clickable: true,
                 type: 'bullets',
             },
@@ -48,21 +52,18 @@ const tileCarousel = function () {
         const mdBreakPoint = window.matchMedia('(min-width: 768px)').matches;
         if (mdBreakPoint === true) {
             swiper.navigation.update();
-            swiper.pagination.el.classList.add('swiper-pagination-hidden')
             swiper.navigation.nextEl.classList.add('swiper-button-hidden')
             swiper.navigation.nextEl.classList.remove('swiper-button-next')
         } else {
             swiper.navigation.update();
-            swiper.pagination.el.classList.remove('swiper-pagination-hidden')
             swiper.navigation.nextEl.classList.remove('swiper-button-hidden')
             swiper.navigation.nextEl.classList.add('swiper-button-next')
         }
     }
-
     return {
         init: init,
         enableCarousel: enableCarousel
     }
 }
 
-export default tileCarousel();
+export default tabsCarousel();

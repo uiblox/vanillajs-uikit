@@ -19,7 +19,6 @@
     <!-- accordion -->
     <div class="demo__container">
         <h2>Accordion Title</h2>
-        <!-- accordion one -->
         <div class="accordion">
             <div aria-expanded="false" class="accordion__group">
                 <div id="accordionHeaderOne" class="accordion__heading">
@@ -38,7 +37,6 @@
                     </ul>
                 </div>
             </div>
-            <!-- accordion two -->
             <div aria-expanded="false" class="accordion__group">
                 <div id="accordionHeaderTwo" class="accordion__heading">
                     <span>Accordion Group II</span>
@@ -53,7 +51,6 @@
                         ea commodo consequat.</p>
                 </div>
             </div>
-            <!--  accordion three -->
             <div aria-expanded="false" class="accordion__group">
                 <div id="accordionHeaderThree" class="accordion__heading">
                     <span>Accordion Group III</span>
@@ -144,21 +141,6 @@
             </div>
         </div>
     </div>
-    <!-- carousel -->
-    <div class="demo__container">
-        <h2>Carousel </h2>
-        <div class="swiper-container carousel">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                <div class="swiper-slide">Slide 4</div>
-            </div>
-            <div class="swiper-pagination carousel-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-    </div>
     <!-- tooltips -->
     <div class="demo__container">
         <h2>Tooltip Examples</h2>
@@ -216,6 +198,33 @@
             </div>
         </div>
     </div>
+    <!-- Autoplay Video -->
+    <div class="demo__container">
+        <h2>Video with autoplay</h2>
+        <p>When plays when scrolled into viewport.</p>
+        <div class="video__container">
+            <svg class="video__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="90" fill="none" stroke-width="15" stroke="#fff" />
+                <path fill="#fff" d="M70 55v90l75-45z" />
+            </svg>
+            <video class="video" src="./src/assets/camper.mp4" controls loop muted></video>
+        </div>
+    </div>
+    <!-- carousel -->
+    <div class="demo__container">
+        <h2>Carousel </h2>
+        <div class="swiper-container carousel">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+            </div>
+            <div class="carousel-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
     <!-- tiles carousel -->
     <div class="demo__container">
         <h2>Tiles Carousel </h2>
@@ -255,11 +264,36 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-pagination tiles-pagination"></div>
+            <div class="tiles-pagination"></div>
             <div class="swiper-button-hidden"></div>
             <div class="swiper-button-next"></div>
         </div>
     </div>
+    <!-- tabs carousel -->
+    <div class="demo__container">
+        <h2>Tabs Carousel </h2>
+        <div class="swiper-container carousel__tabs">
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    Slide 1
+                </div>
+                <div class="swiper-slide">
+                    Slide 2
+                </div>
+                <div class="swiper-slide">
+                    Slide 3
+                </div>
+                <div class="swiper-slide">
+                    Slide 4
+                </div>
+            </div>
+            <div class="tabs-pagination"></div>
+            <div class="swiper-button-hidden"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+    <!-- modal -->
     <div class="demo__container">
         <h2>Modal with keyboard trap</h2>
         <button class="button button__modal-trigger" data-modal-trigger="modal-0">Open Modal</button>
@@ -278,18 +312,6 @@
                     can continue to tab through the document as normal</p>
                 <button type="button">This is a link</button>
             </div>
-        </div>
-    </div>
-    <div class="demo__container">
-        <h2>Video with autoplay</h2>
-        <p>When plays when scrolled into viewport.</p>
-        <!-- muted loop -->
-        <div class="video__container">
-            <svg class="video__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-                <circle cx="100" cy="100" r="90" fill="none" stroke-width="15" stroke="#fff" />
-                <path fill="#fff" d="M70 55v90l75-45z" />
-            </svg>
-            <video class="video" src="./src/assets/camper.mp4" controls loop muted></video>
         </div>
     </div>
     <script src="dist/js/app.js"></script>

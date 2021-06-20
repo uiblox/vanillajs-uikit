@@ -1,3 +1,7 @@
+@import "swiper/swiper.scss";
+@import "swiper/components/pagination/pagination.scss";
+@import "swiper/components/navigation/navigation.scss";
+
 .swiper-container {
   position: relative;
   width: 100%;
@@ -10,9 +14,9 @@
 
   .swiper-button-next,
   .swiper-button-prev {
-    position: absolute;
     color: var(--dark);
     display: inline-block;
+    position: absolute;
   }
 
   .swiper-pagination-bullet {
@@ -25,10 +29,23 @@
       height: 5px;
     }
   }
-
-  .swiper-container-horizontal
-    > .swiper-pagination-bullets
-    .swiper-pagination-bullet {
-    margin: 0 8px;
-  }
 }
+
+// .swiper-container-horizontal
+//   > .swiper-pagination-bullets
+//   .swiper-pagination-bullet {
+//   // margin: 0 8px;
+// }
+
+// .carousel-pagination {
+//   @extend .swiper-pagination;
+//   // bottom: 10px;
+//   // left: 0;
+//   // width: 100%;
+//   // position: absolute;
+//   // text-align: center;
+//   // transition: 300ms opacity;
+//   // transform: translate3d(0, 0, 0);
+//   // z-index: 10;
+// }
+// carousel-pagination swiper-pagination-clickable swiper-pagination-bullets

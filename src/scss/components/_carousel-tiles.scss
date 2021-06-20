@@ -27,13 +27,6 @@
     }
   }
 
-  .tiles-pagination {
-    visibility: visible;
-    @media screen and (min-width: 768px) {
-      visibility: hidden;
-    }
-  }
-
   .swiper-button-next,
   .swiper-button-prev {
     left: initial;
@@ -50,5 +43,16 @@
 
   .swiper-button-next {
     right: 10px;
+  }
+
+  .tiles-pagination {
+    @extend .swiper-pagination;
+  }
+
+  .tiles-pagination {
+    visibility: visible;
+    @media screen and (min-width: 768px) {
+      visibility: hidden;
+    }
   }
 }

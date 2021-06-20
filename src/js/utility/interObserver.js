@@ -9,7 +9,7 @@ const interObserver = (target, handleIntersect) => {
     let options = {
         root: null, /* not setting this property or using null sets root to viewport */
         rootMargin: "0px", /* negitive will set a inner distance */
-        threshold: 1 /* 0 to 1 scale - 1 means the element has to be 100% in the viewport */
+        threshold: 0.5 /* 0 to 1 scale - 1 means the element has to be 100% in the viewport */
     };
 
     observer = new IntersectionObserver(handleIntersect, options);
